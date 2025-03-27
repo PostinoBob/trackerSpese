@@ -61,10 +61,10 @@
             body: JSON.stringify(data),
         })
         .then(
-            document.getElementById("amount").value = "";
-            document.getElementById("description").value = "";
+            document.getElementById("amount").value = "",
+            document.getElementById("description").value = "",
         )
-        .catch(err => alert("Errore: " + err));
+        .catch(err => alert("Errore: " + err)),
     }
     </script>
 </body>
