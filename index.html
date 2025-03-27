@@ -59,7 +59,7 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
         })
-        .then(data => {
+        .then( function() {
             document.getElementById("amount").value = "";
             document.getElementById("description").value = "";
         })
