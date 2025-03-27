@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Finanziario</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, select, button { display: block; width: 100%; margin: 10px 0; padding: 10px; align-items: center;}
+    </style>
+</head>
+<body>
+    <h2>Registro Finanziario</h2>
+    <form id="financeForm">
+        <label>Data:</label>
+        <input type="date" id="date" required>
+
+        <label>Importo:</label>
+        <input type="number" id="amount" step="0.01" required>
+
+        <label>Categoria:</label>
+        <select id="category" required>
+            <option value="+ Stipendio">Stipendio</option>
+            <option value="+ Altre entrate">Altre entrate</option>
+            <option value="- Cibo">Cibo</option>
+            <option value="- Svago" selected>Svago</option>
+            <option value="- Casa">Casa</option>
+            <option value="- Macchina">Macchina</option>
+            <option value="- Altre uscite">Altre uscite</option>
+        </select>
+
+        <label>Descrizione:</label>
+        <input type="text" id="description" placeholder="Breve descrizione">
+
+        <button type="button" onclick="sendData()">Invia</button>
+    </form>
+
+    <script>
+
+        const SECRET_KEY = "CiolaEnorme";
+        document.addEventListener("DOMContentLoaded", function () {
+            let today = new Date().toISOString().split("T")[0]; // Formato YYYY-MM-DD
+            document.getElementById("date").value = today;
+        });
+
+        function sendData() {
+        const data = {
+            date: document.getElementById("date").value,
+            amount: document.getElementById("amount").value,
+            category: document.getElementById("category").value,
+            description: document.getElementById("description").value,
+            token: SECRET_KEY
+        };
+
+        fetch("https://script.google.com/macros/s/AKfycbyCw6f92_quDuTb6SyV5xQe34dtNtUIF1lmE7Uz9pwfrGdJ39MfBbT44qXpKsydNupldA/exec", {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(() => alert("Dati inviati con successo!"))
+        .catch(err => alert("Errore: " + err));
+}
+    </script>
+</body>
+</html>
