@@ -56,10 +56,9 @@
             
         fetch("https://script.google.com/macros/s/AKfycbwMVZFGwc2W0cx6aKOrdIvlfabMnSQiMWE5Lgw3HXUu6id7AGXRxyjApfHPlJAUKZEArA/exec", {
             method: "POST",
-            mode: "cors",
+            mode: "no-cors",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
-            redirect: "follow"
         })
         .then(data => {
             document.getElementById("amount").value = "";
