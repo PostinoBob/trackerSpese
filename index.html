@@ -51,8 +51,8 @@
             amount: document.getElementById("amount").value,
             category: document.getElementById("category").value,
             description: document.getElementById("description").value,
-        };
-
+           };
+        }
             
         fetch("https://script.google.com/macros/s/AKfycbxvuQGoWAGii9SbIG7lbl4sLN61N_Oi3V213NR0BxCSlP3vr5j9FeT5XhdNCbK5eQWpmA/exec", {
             method: "POST",
@@ -63,7 +63,7 @@
         .then(
             document.getElementById("amount").value = "",
             document.getElementById("description").value = "",
-        )};
+        );
     </script>
 </body>
 </html>
