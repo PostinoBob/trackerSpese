@@ -59,11 +59,11 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
         })
-        .then(
-            document.getElementById("amount").value = "",
-            document.getElementById("description").value = "",
-        )
-        }
+        .then(data => {
+            document.getElementById("amount").value = "";
+            document.getElementById("description").value = "";
+        })
+        .catch(err => alert("Errore: " + err));
     </script>
 </body>
 </html>
