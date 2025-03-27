@@ -58,12 +58,17 @@
             method: "POST",
             mode: "no-cors",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            redirect: "manual"
         })
         .then(data => {
             document.getElementById("amount").value = "";
             document.getElementById("description").value = "";
         })
+        .then(response => {
+          console.log("Status:", response.status);
+          console.log("Location:", response.headers.get("Location")); // Dove sta reindirizzando
+          return response.text();
         .catch(err => alert("Errore: " + err));
 }
     </script>
