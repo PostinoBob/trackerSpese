@@ -56,7 +56,7 @@
             
         fetch("https://script.google.com/macros/s/AKfycbzuK8FgY7arPB-ClmNxVjjCn79hAErwZ9AaBWwpi9IfpiAiYKqiNVncpUnyEyxEPlVZxQ/exec", {
             method: "POST",
-            mode: "no-cors",
+            mode: "cors",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
             redirect: "follow"
