@@ -12,6 +12,9 @@
 <body>
     <h2>Registro Finanziario</h2>
     <form id="financeForm">
+        <label>Password:</label>
+        <input type="text" id="password" placeholder="La sai la password brutto coglione?">
+        
         <label>Data:</label>
         <input type="date" id="date" required>
 
@@ -36,8 +39,6 @@
     </form>
 
     <script>
-
-        const SECRET_KEY = "CiolaEnorme";
         document.addEventListener("DOMContentLoaded", function () {
             let today = new Date().toISOString().split("T")[0]; // Formato YYYY-MM-DD
             document.getElementById("date").value = today;
@@ -45,13 +46,14 @@
 
         function sendData() {
         const data = {
+            psw : document.getElementById("password").value,
             date: document.getElementById("date").value,
             amount: document.getElementById("amount").value,
             category: document.getElementById("category").value,
             description: document.getElementById("description").value,
-            token: SECRET_KEY
         };
 
+            
         fetch("https://script.google.com/macros/s/AKfycbyCw6f92_quDuTb6SyV5xQe34dtNtUIF1lmE7Uz9pwfrGdJ39MfBbT44qXpKsydNupldA/exec", {
             method: "POST",
             mode: "no-cors",
