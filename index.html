@@ -64,11 +64,9 @@
         .then(data => {
             document.getElementById("amount").value = "";
             document.getElementById("description").value = "";
+            console.log("Status:", response.status);
+            console.log("Location:", response.headers.get("Location")); // Dove sta reindirizzando
         })
-        .then(response => {
-          console.log("Status:", response.status);
-          console.log("Location:", response.headers.get("Location")); // Dove sta reindirizzando
-          return response.text();
         .catch(err => alert("Errore: " + err));
 }
     </script>
