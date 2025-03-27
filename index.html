@@ -60,7 +60,10 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         })
-        .then(() => alert("Dati inviati con successo!"))
+        .then(data => {
+            document.getElementById("amount").value = "";
+            document.getElementById("description").value = "";
+        })
         .catch(err => alert("Errore: " + err));
 }
     </script>
