@@ -20,7 +20,6 @@
             padding-bottom: 80px;
         }
 
-        /* Header Mobile */
         .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -29,9 +28,6 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -52,12 +48,99 @@
             gap: 5px;
         }
 
-        .sync-badge.online { background: #28a745; color: white; }
-        .sync-badge.offline { background: #ffc107; color: #333; }
         .sync-badge.syncing { background: #17a2b8; color: white; }
+        .sync-badge.success { background: #28a745; color: white; }
         .sync-badge.error { background: #dc3545; color: white; }
 
-        /* Navigation Tabs Mobile */
+        .content {
+            padding: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
         .tabs {
             display: flex;
             background: white;
@@ -94,28 +177,38 @@
             background: #f8f9ff;
         }
 
-        /* Content Area */
-        .content {
-            padding: 15px;
-            max-width: 600px;
-            margin: 0 auto;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.3s;
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 15px;
+            border-radius: 16px;
+            text-align: center;
         }
 
-        .tab-content.active {
-            display: block;
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 8px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        /* Toast Notification */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 15px;
+        }
+
         .toast {
             position: fixed;
             top: 80px;
@@ -143,7 +236,6 @@
 
         .toast-success { border-left: 4px solid #28a745; }
         .toast-error { border-left: 4px solid #dc3545; }
-        .toast-warning { border-left: 4px solid #ffc107; }
         .toast-info { border-left: 4px solid #17a2b8; }
 
         .toast-content {
@@ -171,288 +263,14 @@
             color: #6c757d;
         }
 
-        /* Card Mobile */
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Form Mobile */
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #495057;
-            font-size: 14px;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s;
-            background: #f8f9fa;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        /* Buttons Mobile */
-        .btn {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-success {
-            background: #28a745;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-        }
-
-        .btn-outline {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
-
-        .btn-danger {
-            background: #dc3545;
-            color: white;
-        }
-
-        /* Stats Cards Mobile */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 15px;
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            opacity: 0.9;
-            margin-bottom: 8px;
-        }
-
-        .stat-value {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Chart Mobile */
-        .chart-container {
-            position: relative;
-            height: 250px;
-            margin-top: 15px;
-        }
-
-        /* Quick Actions */
-        .quick-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .quick-action {
-            background: white;
-            border: 2px solid #e9ecef;
-            padding: 20px 15px;
-            border-radius: 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .quick-action:active {
-            transform: scale(0.95);
-            border-color: #667eea;
-        }
-
-        .quick-action-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .quick-action-label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #495057;
-        }
-
-        /* Recent Transactions Mobile */
-        .transaction-list {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .transaction-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .transaction-info {
-            flex: 1;
-        }
-
-        .transaction-desc {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 4px;
-            font-size: 14px;
-        }
-
-        .transaction-meta {
-            font-size: 12px;
-            color: #6c757d;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .transaction-amount {
-            font-size: 18px;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .transaction-sync {
-            font-size: 10px;
-        }
-
-        /* Fixed Expenses Mobile */
-        .fixed-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .fixed-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .fixed-name {
-            font-weight: bold;
-            color: #333;
-            font-size: 15px;
-        }
-
-        .fixed-amount {
-            font-size: 16px;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .fixed-details {
-            font-size: 12px;
-            color: #6c757d;
-        }
-
-        /* Settings List */
-        .settings-list {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .settings-item {
-            padding: 15px;
-            border-bottom: 1px solid #e9ecef;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .settings-item:last-child {
-            border-bottom: none;
-        }
-
-        .settings-label {
-            font-weight: 600;
-            color: #333;
-            font-size: 14px;
-        }
-
-        .settings-value {
-            font-size: 13px;
-            color: #6c757d;
-        }
-
-        /* Loading Spinner */
         .spinner {
             border: 3px solid #f3f3f3;
             border-top: 3px solid #667eea;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             animation: spin 1s linear infinite;
-            margin: 20px auto;
+            display: inline-block;
         }
 
         @keyframes spin {
@@ -460,31 +278,43 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 380px) {
-            .header h1 {
-                font-size: 20px;
-            }
-            
-            .stat-value {
-                font-size: 20px;
-            }
-            
-            .tab {
-                font-size: 10px;
-            }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
         }
 
-        /* Hide elements on very small screens */
-        @media (max-width: 350px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+        .loading-overlay.show {
+            display: flex;
+        }
+
+        .loading-content {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
         }
     </style>
 </head>
 <body>
-    <!-- Toast Notification -->
+    <!-- Toast -->
     <div id="toast" class="toast">
         <div class="toast-content">
             <div class="toast-icon" id="toastIcon">✅</div>
@@ -495,92 +325,46 @@
         </div>
     </div>
 
-    <!-- Header -->
-    <div class="header">
-        <div class="header-content">
-            <h1>💰 Le Mie Spese</h1>
-            <div class="sync-badge" id="syncBadge">
-                <span id="syncIcon">✅</span>
-                <span id="syncText">Online</span>
-            </div>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div>Sincronizzazione...</div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="content">
-        <!-- Dashboard Tab -->
-        <div id="dashboard" class="tab-content active">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-label">Totale Mese</div>
-                    <div class="stat-value" id="totalMonth">€0</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Transazioni</div>
-                    <div class="stat-value" id="totalTransactions">0</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Spese Fisse</div>
-                    <div class="stat-value" id="totalFixed">€0</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Variabili</div>
-                    <div class="stat-value" id="totalVariable">€0</div>
-                </div>
-            </div>
-
-            <div class="quick-actions">
-                <div class="quick-action" onclick="switchTab('expenses')">
-                    <div class="quick-action-icon">➕</div>
-                    <div class="quick-action-label">Aggiungi</div>
-                </div>
-                <div class="quick-action" onclick="syncAllData()">
-                    <div class="quick-action-icon">🔄</div>
-                    <div class="quick-action-label">Sincronizza</div>
-                </div>
-                <div class="quick-action" onclick="switchTab('fixed')">
-                    <div class="quick-action-icon">⚙️</div>
-                    <div class="quick-action-label">Spese Fisse</div>
-                </div>
-                <div class="quick-action" onclick="switchTab('settings')">
-                    <div class="quick-action-icon">🔧</div>
-                    <div class="quick-action-label">Impostazioni</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">📊 Spese per Categoria</div>
-                <div class="chart-container">
-                    <canvas id="categoryChart"></canvas>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">📋 Ultime Spese</div>
-                <div class="transaction-list" id="transactionList">
-                    <!-- Transactions will be inserted here -->
-                </div>
-            </div>
+    <!-- Header -->
+    <div class="header">
+        <h1>💰 Spese</h1>
+        <div class="sync-badge" id="syncBadge" style="display:none;">
+            <span id="syncIcon">🔄</span>
+            <span id="syncText">Sync</span>
         </div>
+    </div>
 
-        <!-- Add Expense Tab -->
-        <div id="expenses" class="tab-content">
+    <div class="content">
+        <!-- ADD EXPENSE PAGE (default) -->
+        <div id="addPage" class="page active">
             <div class="card">
-                <div class="card-title">➕ Nuova Spesa</div>
                 <form id="expenseForm">
                     <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="password" required autocomplete="current-password">
+                    </div>
+
+                    <div class="form-group">
                         <label>Data</label>
-                        <input type="date" id="expenseDate" required>
+                        <input type="date" id="date" required>
                     </div>
 
                     <div class="form-group">
                         <label>Importo (€)</label>
-                        <input type="number" id="expenseAmount" step="0.01" placeholder="0.00" required inputmode="decimal">
+                        <input type="number" id="amount" step="0.01" placeholder="0.00" required inputmode="decimal">
                     </div>
 
                     <div class="form-group">
                         <label>Categoria</label>
-                        <select id="expenseCategory" required>
+                        <select id="category" required>
                             <option value="">Seleziona...</option>
                             <option value="_+ Stipendio">💰 Stipendio</option>
                             <option value="_+ Altre entrate">💵 Altre entrate</option>
@@ -594,103 +378,55 @@
 
                     <div class="form-group">
                         <label>Descrizione</label>
-                        <input type="text" id="expenseDescription" placeholder="Es: Spesa supermercato" required>
+                        <input type="text" id="description" placeholder="Es: Spesa supermercato" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">
-                        💾 Salva e Sincronizza
-                    </button>
-                    
-                    <button type="button" class="btn btn-outline" onclick="saveOffline()">
-                        📱 Salva Solo Locale
+                        💾 Salva Spesa
                     </button>
                 </form>
             </div>
         </div>
 
-        <!-- Fixed Expenses Tab -->
-        <div id="fixed" class="tab-content">
-            <div class="card">
-                <div class="card-title">⚙️ Configura Spese Fisse</div>
-                <form id="fixedExpenseForm">
-                    <div class="form-group">
-                        <label>Nome</label>
-                        <input type="text" id="fixedName" placeholder="Es: Affitto" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Importo (€)</label>
-                        <input type="number" id="fixedAmount" step="0.01" placeholder="0.00" required inputmode="decimal">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Categoria</label>
-                        <select id="fixedCategory" required>
-                            <option value="_- Casa">🏠 Casa</option>
-                            <option value="_- Bollette">💡 Bollette</option>
-                            <option value="_- Macchina">🚗 Macchina</option>
-                            <option value="_- Altre uscite">📦 Altre uscite</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Giorno del Mese</label>
-                        <input type="number" id="fixedDay" min="1" max="31" placeholder="1-31" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">
-                        ➕ Aggiungi Spesa Fissa
-                    </button>
-                </form>
+        <!-- STATS PAGE -->
+        <div id="statsPage" class="page">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Totale Mese</div>
+                    <div class="stat-value" id="totalMonth">€0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Budget Rimasto</div>
+                    <div class="stat-value" id="budgetLeft">€0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Entrate</div>
+                    <div class="stat-value" id="totalIncome">€0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Uscite</div>
+                    <div class="stat-value" id="totalExpenses">€0</div>
+                </div>
             </div>
 
             <div class="card">
-                <div class="card-title">📋 Spese Fisse Salvate</div>
-                <div id="fixedList">
-                    <!-- Fixed expenses will be inserted here -->
-                </div>
-                <button class="btn btn-success" onclick="applyFixedExpenses()">
-                    ✅ Applica Spese del Mese
-                </button>
-            </div>
-        </div>
-
-        <!-- Settings Tab -->
-        <div id="settings" class="tab-content">
-            <div class="card">
-                <div class="card-title">🔧 Configurazione</div>
-                <div class="form-group">
-                    <label>URL Google Script</label>
-                    <input type="url" id="scriptUrl" placeholder="https://script.google.com/...">
-                </div>
-
-                <div class="form-group">
-                    <label>Password API</label>
-                    <input type="password" id="apiPassword" placeholder="Password per Google Sheets">
-                </div>
-
-                <button class="btn btn-primary" onclick="saveSettings()">
-                    💾 Salva Configurazione
-                </button>
-
-                <button class="btn btn-success" onclick="testConnection()">
-                    🔌 Test Connessione
+                <label>Budget Mensile (€)</label>
+                <input type="number" id="monthlyBudget" placeholder="Es: 2000" step="100" inputmode="decimal">
+                <button class="btn btn-secondary" onclick="saveBudget()" style="margin-top: 10px;">
+                    💾 Salva Budget
                 </button>
             </div>
 
             <div class="card">
-                <div class="card-title">💾 Gestione Dati</div>
-                
-                <button class="btn btn-outline" onclick="viewDebugInfo()">
-                    🐛 Info Debug
-                </button>
+                <label style="margin-bottom: 10px;">📊 Spese per Categoria</label>
+                <div class="chart-container">
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
 
-                <button class="btn btn-secondary" onclick="clearExpenses()">
-                    🗑️ Cancella Spese
-                </button>
-
-                <button class="btn btn-danger" onclick="clearAllData()">
-                    ⚠️ Cancella Tutto
+            <div class="card">
+                <button class="btn btn-primary" onclick="loadStats()">
+                    🔄 Aggiorna Statistiche
                 </button>
             </div>
         </div>
@@ -698,535 +434,265 @@
 
     <!-- Bottom Navigation -->
     <div class="tabs">
-        <button class="tab active" onclick="switchTab('dashboard')" data-tab="dashboardd">
-            <div class="tab-icon">🏠</div>
-            <div>Home</div>
-        </button>
-        <button class="tab" onclick="switchTab('expenses')" data-tab="expenses">
+        <button class="tab active" onclick="switchPage('add')" data-page="add">
             <div class="tab-icon">➕</div>
             <div>Aggiungi</div>
         </button>
-        <button class="tab" onclick="switchTab('fixed')" data-tab="fixed">
-            <div class="tab-icon">⚙️</div>
-            <div>Fisse</div>
-        </button>
-        <button class="tab" onclick="switchTab('settings')" data-tab="settings">
-            <div class="tab-icon">🔧</div>
-            <div>Altro</div>
+        <button class="tab" onclick="switchPage('stats')" data-page="stats">
+            <div class="tab-icon">📊</div>
+            <div>Statistiche</div>
         </button>
     </div>
 
     <script>
-        // Configuration
-        const DEFAULT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzWIBxo1I1ikVqFzKPKnrZkNvS5L_YQiyPvT_2LCndJZ8brac4jYo3RWSeaQUbBYQZ8/exec";
+        // ⬇️⬇️⬇️ CONFIGURA QUI L'URL DELLO SCRIPT GOOGLE ⬇️⬇️⬇️
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybvpkYCaD01AN5hfWJQqkmdgE8BSBK89AhfiANz2RdUu3XTR91DrHmvST8-Xq0Hxio/exec";
         
-        let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        let fixedExpenses = JSON.parse(localStorage.getItem('fixedExpenses')) || [];
-        let settings = JSON.parse(localStorage.getItem('settings')) || {
-            scriptUrl: DEFAULT_SCRIPT_URL,
-            apiPassword: ""
-        };
+        // ⬇️⬇️⬇️ CONFIGURA QUI L'ID DEL TUO GOOGLE SHEET (per leggere dati) ⬇️⬇️⬇️
+        const SHEET_ID = "1eX5Mhj8-Wv1zAatGMRSGIlR03VKbMWmwvO-Sk2-zkjg";
+
         let categoryChart;
+        let cachedPassword = '';
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            loadSettings();
-            document.getElementById('expenseDate').valueAsDate = new Date();
+            document.getElementById('date').valueAsDate = new Date();
             initChart();
-            updateDashboard();
-            checkPendingSync();
+            
+            // Try to load cached password from sessionStorage
+            const saved = sessionStorage.getItem('psw');
+            if (saved) {
+                document.getElementById('password').value = saved;
+                cachedPassword = saved;
+            }
         });
 
-        // Toast Notification System
+        // Switch Page
+        function switchPage(pageName) {
+            // Update tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.page === pageName) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Update pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            if (pageName === 'add') {
+                document.getElementById('addPage').classList.add('active');
+            } else if (pageName === 'stats') {
+                document.getElementById('statsPage').classList.add('active');
+                loadStats();
+            }
+
+            window.scrollTo(0, 0);
+        }
+
+        // Show Toast
         function showToast(type, title, message, duration = 3000) {
             const toast = document.getElementById('toast');
             const toastIcon = document.getElementById('toastIcon');
             const toastTitle = document.getElementById('toastTitle');
             const toastText = document.getElementById('toastText');
 
-            // Remove all type classes
             toast.className = 'toast show toast-' + type;
 
-            // Set icon based on type
-            const icons = {
-                success: '✅',
-                error: '❌',
-                warning: '⚠️',
-                info: 'ℹ️'
-            };
+            const icons = { success: '✅', error: '❌', info: 'ℹ️' };
             toastIcon.textContent = icons[type] || '📌';
 
-            // Set content
             toastTitle.textContent = title;
             toastText.textContent = message;
 
-            // Auto hide
             setTimeout(() => {
                 toast.classList.remove('show');
             }, duration);
         }
 
-        // Update Sync Status
-        function updateSyncStatus(status, text) {
+        // Show/Hide Loading
+        function showLoading(show) {
+            const overlay = document.getElementById('loadingOverlay');
+            if (show) {
+                overlay.classList.add('show');
+            } else {
+                overlay.classList.remove('show');
+            }
+        }
+
+        // Update Sync Badge
+        function updateSyncBadge(status, text) {
             const badge = document.getElementById('syncBadge');
             const icon = document.getElementById('syncIcon');
             const textEl = document.getElementById('syncText');
             
+            badge.style.display = 'flex';
             badge.className = 'sync-badge ' + status;
             textEl.textContent = text;
             
-            const icons = {
-                online: '✅',
-                offline: '⚠️',
-                syncing: '🔄',
-                error: '❌'
-            };
+            const icons = { syncing: '🔄', success: '✅', error: '❌' };
             icon.textContent = icons[status] || '📶';
+
+            setTimeout(() => {
+                badge.style.display = 'none';
+            }, 3000);
         }
 
-        // Switch Tabs
-        function switchTab(tabName) {
-            // Update tab buttons
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-                if (tab.dataset.tab === tabName) {
-                    tab.classList.add('active');
-                }
-            });
-
-            // Update content
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById(tabName).classList.add('active');
-
-            // Scroll to top
-            window.scrollTo(0, 0);
-
-            // Update data if needed
-            if (tabName === 'dashboard') {
-                updateDashboard();
-            } else if (tabName === 'fixed') {
-                displayFixedExpenses();
-            } else if (tabName === 'settings') {
-                loadSettings();
-            }
-        }
-
-        // Save Settings
-        function saveSettings() {
-            const scriptUrl = document.getElementById('scriptUrl').value.trim();
-            const apiPassword = document.getElementById('apiPassword').value;
-
-            if (!scriptUrl) {
-                showToast('error', 'Errore', 'Inserisci l\'URL dello script');
-                return;
-            }
-
-            settings.scriptUrl = scriptUrl;
-            settings.apiPassword = apiPassword;
-            localStorage.setItem('settings', JSON.stringify(settings));
-            
-            showToast('success', 'Salvato!', 'Configurazione salvata correttamente');
-        }
-
-        // Load Settings
-        function loadSettings() {
-            document.getElementById('scriptUrl').value = settings.scriptUrl;
-            document.getElementById('apiPassword').value = settings.apiPassword;
-        }
-
-        // Test Connection with detailed feedback
-        async function testConnection() {
-            if (!settings.scriptUrl || !settings.apiPassword) {
-                showToast('error', 'Configurazione mancante', 'Inserisci URL e Password prima');
-                return;
-            }
-
-            updateSyncStatus('syncing', 'Test...');
-            showToast('info', 'Test in corso', 'Verifica connessione a Google Sheets...');
-
-            try {
-                const response = await fetch(settings.scriptUrl, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        psw: settings.apiPassword,
-                        date: new Date().toISOString().split('T')[0],
-                        amount: 0.01,
-                        category: "_- Test",
-                        description: "Test connessione app",
-                        operation: "test"
-                    })
-                });
-
-                // Try to parse response
-                const text = await response.text();
-                console.log('Response:', text);
-
-                // Check if response contains success indicators
-                if (text.includes('success') || text.includes('OK') || text.includes('correttamente')) {
-                    updateSyncStatus('online', 'Online');
-                    showToast('success', 'Connessione OK!', 'Google Sheets raggiungibile correttamente');
-                } else if (text.includes('negato') || text.includes('Password errata')) {
-                    updateSyncStatus('error', 'Errore');
-                    showToast('error', 'Password Errata', 'Verifica la password API nelle impostazioni');
-                } else {
-                    updateSyncStatus('online', 'Online');
-                    showToast('warning', 'Risposta Ricevuta', 'Connessione OK ma risposta inaspettata');
-                }
-
-            } catch (error) {
-                console.error('Connection error:', error);
-                updateSyncStatus('error', 'Errore');
-                showToast('error', 'Errore Connessione', 'Impossibile raggiungere Google Sheets: ' + error.message);
-            }
-        }
-
-        // Expense Form Submit
+        // Form Submit
         document.getElementById('expenseForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const expense = {
-                id: Date.now(),
-                date: document.getElementById('expenseDate').value,
-                amount: parseFloat(document.getElementById('expenseAmount').value),
-                category: document.getElementById('expenseCategory').value,
-                description: document.getElementById('expenseDescription').value,
-                type: 'variable',
-                synced: false
-            };
+            const password = document.getElementById('password').value;
+            const date = document.getElementById('date').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value;
 
-            // Save locally first
-            expenses.push(expense);
-            saveData();
+            // Save password in session
+            sessionStorage.setItem('psw', password);
+            cachedPassword = password;
 
-            // Show saving message
-            updateSyncStatus('syncing', 'Sincr...');
-            showToast('info', 'Salvataggio', 'Invio a Google Sheets in corso...');
-
-            // Try to sync
-            const result = await syncExpense(expense);
-            
-            if (result.success) {
-                expense.synced = true;
-                saveData();
-                updateSyncStatus('online', 'Online');
-                showToast('success', 'Spesa Salvata!', result.message || 'Sincronizzata con Google Sheets');
-            } else {
-                updateSyncStatus('offline', 'Locale');
-                showToast('warning', 'Salvata Localmente', result.message || 'Sincronizzazione fallita, riprova più tardi');
-            }
-
-            // Reset form (except password which is in settings)
-            document.getElementById('expenseAmount').value = '';
-            document.getElementById('expenseDescription').value = '';
-            document.getElementById('expenseCategory').value = '';
-            document.getElementById('expenseDate').valueAsDate = new Date();
-            
-            updateDashboard();
-        });
-
-        // Save Offline Only
-        function saveOffline() {
-            const expense = {
-                id: Date.now(),
-                date: document.getElementById('expenseDate').value,
-                amount: parseFloat(document.getElementById('expenseAmount').value),
-                category: document.getElementById('expenseCategory').value,
-                description: document.getElementById('expenseDescription').value,
-                type: 'variable',
-                synced: false
-            };
-
-            if (!expense.amount || !expense.category || !expense.description) {
-                showToast('error', 'Errore', 'Compila tutti i campi');
-                return;
-            }
-
-            expenses.push(expense);
-            saveData();
-            
-            showToast('success', 'Salvata!', 'Spesa salvata localmente');
-            
-            document.getElementById('expenseAmount').value = '';
-            document.getElementById('expenseDescription').value = '';
-            document.getElementById('expenseCategory').value = '';
-            
-            updateDashboard();
-        }
-
-        // Sync Single Expense with detailed feedback
-        async function syncExpense(expense) {
-            if (!settings.scriptUrl || !settings.apiPassword) {
-                return { success: false, message: 'Configurazione mancante' };
-            }
+            showLoading(true);
+            updateSyncBadge('syncing', 'Sync...');
 
             try {
-                const response = await fetch(settings.scriptUrl, {
+                const response = await fetch(SCRIPT_URL, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        psw: settings.apiPassword,
-                        date: expense.date,
-                        amount: expense.amount,
-                        category: expense.category,
-                        description: expense.description
+                        psw: password,
+                        date: date,
+                        amount: amount,
+                        category: category,
+                        description: description
                     })
                 });
 
                 const text = await response.text();
-                console.log('Sync response:', text);
+                console.log('Response:', text);
 
-                // Check response
+                showLoading(false);
+
                 if (text.includes('success') || text.includes('correttamente') || text.includes('inserita')) {
-                    return { success: true, message: 'Spesa aggiunta a Google Sheets' };
+                    updateSyncBadge('success', 'OK');
+                    showToast('success', 'Salvata!', 'Spesa aggiunta a Google Sheets');
+                    
+                    // Reset form except password and date
+                    document.getElementById('amount').value = '';
+                    document.getElementById('category').value = '';
+                    document.getElementById('description').value = '';
+                    
                 } else if (text.includes('negato') || text.includes('Password')) {
-                    return { success: false, message: 'Password errata - verifica impostazioni' };
+                    updateSyncBadge('error', 'Errore');
+                    showToast('error', 'Password Errata', 'Verifica la password inserita');
                 } else {
-                    return { success: false, message: 'Risposta inaspettata da Google Sheets' };
+                    updateSyncBadge('error', 'Errore');
+                    showToast('error', 'Errore', 'Risposta inaspettata da Google Sheets');
                 }
 
             } catch (error) {
-                console.error('Sync error:', error);
-                return { success: false, message: 'Errore di rete: ' + error.message };
+                console.error('Error:', error);
+                showLoading(false);
+                updateSyncBadge('error', 'Errore');
+                showToast('error', 'Errore Connessione', error.message);
             }
-        }
-
-        // Sync All Data
-        async function syncAllData() {
-            const unsyncedExpenses = expenses.filter(exp => !exp.synced);
-            
-            if (unsyncedExpenses.length === 0) {
-                showToast('info', 'Già Sincronizzato', 'Tutti i dati sono aggiornati');
-                return;
-            }
-
-            updateSyncStatus('syncing', 'Sincr...');
-            showToast('info', 'Sincronizzazione', `Invio di ${unsyncedExpenses.length} spese...`);
-            
-            let syncedCount = 0;
-            let failedCount = 0;
-
-            for (const expense of unsyncedExpenses) {
-                const result = await syncExpense(expense);
-                if (result.success) {
-                    expense.synced = true;
-                    syncedCount++;
-                } else {
-                    failedCount++;
-                }
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
-
-            saveData();
-            
-            if (failedCount === 0) {
-                updateSyncStatus('online', 'Online');
-                showToast('success', 'Sincronizzato!', `${syncedCount} spese caricate su Google Sheets`);
-            } else {
-                updateSyncStatus('offline', `${failedCount} da sync`);
-                showToast('warning', 'Sincronizzazione Parziale', `${syncedCount} OK, ${failedCount} fallite`);
-            }
-            
-            updateDashboard();
-        }
-
-        // Fixed Expense Form
-        document.getElementById('fixedExpenseForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const fixedExpense = {
-                id: Date.now(),
-                name: document.getElementById('fixedName').value,
-                amount: parseFloat(document.getElementById('fixedAmount').value),
-                category: document.getElementById('fixedCategory').value,
-                day: parseInt(document.getElementById('fixedDay').value)
-            };
-
-            fixedExpenses.push(fixedExpense);
-            saveData();
-            
-            showToast('success', 'Aggiunta!', 'Spesa fissa configurata');
-            
-            document.getElementById('fixedExpenseForm').reset();
-            displayFixedExpenses();
         });
 
-        // Apply Fixed Expenses
-        async function applyFixedExpenses() {
-            if (fixedExpenses.length === 0) {
-                showToast('warning', 'Nessuna Spesa', 'Configura prima le spese fisse');
+        // Save Budget
+        function saveBudget() {
+            const budget = document.getElementById('monthlyBudget').value;
+            if (budget) {
+                localStorage.setItem('monthlyBudget', budget);
+                showToast('success', 'Salvato!', 'Budget mensile aggiornato');
+                loadStats();
+            }
+        }
+
+        // Load Stats from Google Sheets
+        async function loadStats() {
+            if (!cachedPassword && !sessionStorage.getItem('psw')) {
+                showToast('info', 'Password Necessaria', 'Inserisci prima una spesa per salvare la password');
                 return;
             }
 
+            const password = cachedPassword || sessionStorage.getItem('psw');
+            showLoading(true);
+
+            try {
+                // Use Google Sheets API or read from published sheet
+                const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+                
+                const response = await fetch(url);
+                const text = await response.text();
+                
+                // Parse Google Visualization API response
+                const jsonString = text.substring(47, text.length - 2);
+                const data = JSON.parse(jsonString);
+                
+                processSheetData(data);
+                showLoading(false);
+                
+            } catch (error) {
+                console.error('Error loading stats:', error);
+                showLoading(false);
+                showToast('error', 'Errore', 'Impossibile caricare statistiche. Assicurati che il foglio sia pubblico.');
+            }
+        }
+
+        // Process Sheet Data
+        function processSheetData(data) {
+            const rows = data.table.rows;
             const currentMonth = new Date().getMonth();
             const currentYear = new Date().getFullYear();
 
-            const alreadyApplied = expenses.some(exp => {
-                const expDate = new Date(exp.date);
-                return exp.type === 'fixed' && 
-                       expDate.getMonth() === currentMonth && 
-                       expDate.getFullYear() === currentYear;
-            });
+            let totalIncome = 0;
+            let totalExpenses = 0;
+            const categoryData = {};
 
-            if (alreadyApplied) {
-                if (!confirm('Le spese fisse sembrano già applicate. Continuare?')) {
-                    return;
+            // Skip header row
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i].c;
+                if (!row || !row[0]) continue;
+
+                const dateStr = row[0].v; // Date
+                const amount = parseFloat(row[1]?.v || 0); // Amount
+                const category = row[2]?.v || ''; // Category
+
+                // Parse date
+                const date = new Date(dateStr);
+                if (date.getMonth() !== currentMonth || date.getFullYear() !== currentYear) {
+                    continue;
                 }
-            }
 
-            updateSyncStatus('syncing', 'Applicando...');
-            showToast('info', 'Applicazione', 'Creazione spese fisse del mese...');
-            
-            let syncedCount = 0;
-
-            for (const fixed of fixedExpenses) {
-                const expense = {
-                    id: Date.now() + Math.random(),
-                    date: new Date(currentYear, currentMonth, fixed.day).toISOString().split('T')[0],
-                    amount: fixed.amount,
-                    category: fixed.category,
-                    description: fixed.name,
-                    name: fixed.name,
-                    type: 'fixed',
-                    synced: false
-                };
-                
-                expenses.push(expense);
-                
-                const result = await syncExpense(expense);
-                if (result.success) {
-                    expense.synced = true;
-                    syncedCount++;
+                // Calculate totals
+                if (category.startsWith('_+')) {
+                    totalIncome += amount;
+                } else if (category.startsWith('_-')) {
+                    totalExpenses += amount;
                 }
-                
-                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Category data
+                if (!categoryData[category]) {
+                    categoryData[category] = 0;
+                }
+                categoryData[category] += amount;
             }
 
-            saveData();
-            updateSyncStatus('online', 'Online');
-            showToast('success', 'Applicate!', `${syncedCount}/${fixedExpenses.length} spese fisse sincronizzate`);
-            updateDashboard();
-        }
+            const totalMonth = totalExpenses - totalIncome;
+            const budget = parseFloat(localStorage.getItem('monthlyBudget') || 0);
+            const budgetLeft = budget - totalExpenses;
 
-        // Display Fixed Expenses
-        function displayFixedExpenses() {
-            const list = document.getElementById('fixedList');
-            list.innerHTML = '';
-
-            if (fixedExpenses.length === 0) {
-                list.innerHTML = '<p style="text-align: center; color: #6c757d; padding: 20px;">Nessuna spesa fissa configurata</p>';
-                return;
-            }
-
-            fixedExpenses.forEach(exp => {
-                const div = document.createElement('div');
-                div.className = 'fixed-item';
-                div.innerHTML = `
-                    <div class="fixed-header">
-                        <div class="fixed-name">${exp.name}</div>
-                        <div class="fixed-amount">€${exp.amount.toFixed(2)}</div>
-                    </div>
-                    <div class="fixed-details">${exp.category} • Giorno ${exp.day}</div>
-                `;
-                div.onclick = () => {
-                    if (confirm(`Eliminare "${exp.name}"?`)) {
-                        deleteFixedExpense(exp.id);
-                    }
-                };
-                list.appendChild(div);
-            });
-        }
-
-        // Delete Fixed Expense
-        function deleteFixedExpense(id) {
-            fixedExpenses = fixedExpenses.filter(exp => exp.id !== id);
-            saveData();
-            displayFixedExpenses();
-            showToast('success', 'Eliminata', 'Spesa fissa rimossa');
-        }
-
-        // Save Data
-        function saveData() {
-            localStorage.setItem('expenses', JSON.stringify(expenses));
-            localStorage.setItem('fixedExpenses', JSON.stringify(fixedExpenses));
-        }
-
-        // Check Pending Sync
-        function checkPendingSync() {
-            const unsyncedCount = expenses.filter(exp => !exp.synced).length;
-            if (unsyncedCount > 0) {
-                updateSyncStatus('offline', `${unsyncedCount} da sync`);
-            }
-        }
-
-        // Update Dashboard
-        function updateDashboard() {
-            const currentMonth = new Date().getMonth();
-            const currentYear = new Date().getFullYear();
-
-            const monthExpenses = expenses.filter(exp => {
-                const expDate = new Date(exp.date);
-                return expDate.getMonth() === currentMonth && expDate.getFullYear() === currentYear;
-            });
-
-            const totalMonth = monthExpenses.reduce((sum, exp) => sum + exp.amount, 0);
-            const totalFixed = monthExpenses.filter(exp => exp.type === 'fixed').reduce((sum, exp) => sum + exp.amount, 0);
-            const totalVariable = monthExpenses.filter(exp => exp.type === 'variable').reduce((sum, exp) => sum + exp.amount, 0);
-
+            // Update UI
             document.getElementById('totalMonth').textContent = '€' + totalMonth.toFixed(0);
-            document.getElementById('totalFixed').textContent = '€' + totalFixed.toFixed(0);
-            document.getElementById('totalVariable').textContent = '€' + totalVariable.toFixed(0);
-            document.getElementById('totalTransactions').textContent = monthExpenses.length;
+            document.getElementById('totalIncome').textContent = '€' + totalIncome.toFixed(0);
+            document.getElementById('totalExpenses').textContent = '€' + totalExpenses.toFixed(0);
+            document.getElementById('budgetLeft').textContent = '€' + budgetLeft.toFixed(0);
+            document.getElementById('monthlyBudget').value = budget || '';
 
-            displayRecentExpenses();
-            updateChart();
-        }
-
-        // Display Recent Expenses
-        function displayRecentExpenses() {
-            const list = document.getElementById('transactionList');
-            list.innerHTML = '';
-
-            const recentExpenses = expenses.slice(-20).reverse();
-
-            if (recentExpenses.length === 0) {
-                list.innerHTML = '<p style="text-align: center; color: #6c757d; padding: 20px;">Nessuna spesa registrata</p>';
-                return;
-            }
-
-            recentExpenses.forEach(exp => {
-                const div = document.createElement('div');
-                div.className = 'transaction-item';
-                const syncIcon = exp.synced ? '✅' : '⏳';
-                div.innerHTML = `
-                    <div class="transaction-info">
-                        <div class="transaction-desc">${exp.description || exp.name}</div>
-                        <div class="transaction-meta">
-                            <span>${new Date(exp.date).toLocaleDateString('it-IT')}</span>
-                            <span>•</span>
-                            <span>${exp.category}</span>
-                            <span class="transaction-sync">${syncIcon}</span>
-                        </div>
-                    </div>
-                    <div class="transaction-amount">€${exp.amount.toFixed(2)}</div>
-                `;
-                div.onclick = () => {
-                    if (confirm(`Eliminare questa spesa?`)) {
-                        deleteExpense(exp.id);
-                    }
-                };
-                list.appendChild(div);
-            });
-        }
-
-        // Delete Expense
-        function deleteExpense(id) {
-            expenses = expenses.filter(exp => exp.id !== id);
-            saveData();
-            updateDashboard();
-            showToast('success', 'Eliminata', 'Spesa rimossa');
+            // Update chart
+            updateChart(categoryData);
         }
 
         // Initialize Chart
@@ -1251,9 +717,7 @@
                         legend: {
                             position: 'bottom',
                             labels: {
-                                font: {
-                                    size: 11
-                                },
+                                font: { size: 11 },
                                 padding: 10
                             }
                         }
@@ -1263,62 +727,18 @@
         }
 
         // Update Chart
-        function updateChart() {
-            const currentMonth = new Date().getMonth();
-            const currentYear = new Date().getFullYear();
-
-            const categoryData = {};
-            expenses.filter(exp => {
-                const expDate = new Date(exp.date);
-                return expDate.getMonth() === currentMonth && expDate.getFullYear() === currentYear;
-            }).forEach(exp => {
-                categoryData[exp.category] = (categoryData[exp.category] || 0) + exp.amount;
-            });
-
-            categoryChart.data.labels = Object.keys(categoryData);
-            categoryChart.data.datasets[0].data = Object.values(categoryData);
-            categoryChart.update();
-        }
-
-        // Debug Info
-        function viewDebugInfo() {
-            const info = `
-📊 INFO DEBUG
-
-Spese totali: ${expenses.length}
-Spese fisse: ${fixedExpenses.length}
-Da sincronizzare: ${expenses.filter(e => !e.synced).length}
-
-URL Script: ${settings.scriptUrl ? '✅ Configurato' : '❌ Mancante'}
-Password: ${settings.apiPassword ? '✅ Configurata' : '❌ Mancante'}
-
-Ultima spesa: ${expenses.length > 0 ? new Date(expenses[expenses.length-1].date).toLocaleDateString('it-IT') : 'Nessuna'}
-            `;
-            alert(info);
-        }
-
-        // Clear Expenses
-        function clearExpenses() {
-            if (confirm('Vuoi cancellare tutte le spese? (mantiene spese fisse)')) {
-                expenses = [];
-                saveData();
-                updateDashboard();
-                showToast('success', 'Cancellate', 'Tutte le spese sono state rimosse');
-            }
-        }
-
-        // Clear All Data
-        function clearAllData() {
-            if (confirm('⚠️ ATTENZIONE: Cancellare TUTTI i dati?')) {
-                if (confirm('Ultima conferma: sei sicuro?')) {
-                    expenses = [];
-                    fixedExpenses = [];
-                    saveData();
-                    updateDashboard();
-                    displayFixedExpenses();
-                    showToast('success', 'Cancellato', 'Tutti i dati sono stati rimossi');
+        function updateChart(categoryData) {
+            // Filter only expenses
+            const expenseData = {};
+            for (let cat in categoryData) {
+                if (cat.startsWith('_-')) {
+                    expenseData[cat] = categoryData[cat];
                 }
             }
+
+            categoryChart.data.labels = Object.keys(expenseData);
+            categoryChart.data.datasets[0].data = Object.values(expenseData);
+            categoryChart.update();
         }
     </script>
 </body>
